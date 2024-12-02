@@ -1,0 +1,559 @@
+classdef ing6_v0_2 < matlab.apps.AppBase
+
+    % Properties that correspond to app components
+    properties (Access = public)
+        UIFigure                       matlab.ui.Figure
+        Toolbar                        matlab.ui.container.Toolbar
+        newfile_thing                  matlab.ui.container.toolbar.PushTool
+        save_thing                     matlab.ui.container.toolbar.PushTool
+        ProgramPrintoutPanel           matlab.ui.container.Panel
+        TextArea                       matlab.ui.control.TextArea
+        TextAreaLabel                  matlab.ui.control.Label
+        Panel_EffectsSampleModification  matlab.ui.container.Panel
+        StopButton                     matlab.ui.control.Button
+        PlayButton                     matlab.ui.control.Button
+        LRBalanceSlider                matlab.ui.control.Slider
+        LRBalanceSliderLabel           matlab.ui.control.Label
+        SampleDirectionSwitch          matlab.ui.control.Switch
+        SampleDirectionSwitchLabel     matlab.ui.control.Label
+        EqRange6Slider                 matlab.ui.control.Slider
+        Slider_6Label                  matlab.ui.control.Label
+        EqRange5Slider                 matlab.ui.control.Slider
+        Slider_5Label                  matlab.ui.control.Label
+        EqRange4Slider                 matlab.ui.control.Slider
+        Slider_4Label                  matlab.ui.control.Label
+        EqRange3Slider                 matlab.ui.control.Slider
+        Slider_3Label                  matlab.ui.control.Label
+        EqRange2Slider                 matlab.ui.control.Slider
+        Slider_2Label                  matlab.ui.control.Label
+        EqRange1Slider                 matlab.ui.control.Slider
+        SliderLabel                    matlab.ui.control.Label
+        Knob_3                         matlab.ui.control.Knob
+        Knob_3Label                    matlab.ui.control.Label
+        DelayKnob                      matlab.ui.control.Knob
+        DelayKnobLabel                 matlab.ui.control.Label
+        VolumeKnob                     matlab.ui.control.Knob
+        VolumeKnobLabel                matlab.ui.control.Label
+        Panel_Synthesizer              matlab.ui.container.Panel
+        KeyboardPanel                  matlab.ui.container.Panel
+        GridLayout2                    matlab.ui.container.GridLayout
+        FrequencyEditField             matlab.ui.control.EditField
+        EditFieldLabel                 matlab.ui.control.Label
+        FrequencyDropDown              matlab.ui.control.DropDown
+        FrequencyLabel                 matlab.ui.control.Label
+        ButtonGroup_WaveformFunctions  matlab.ui.container.ButtonGroup
+        Button10                       matlab.ui.control.Button
+        TriangleWaveButton             matlab.ui.control.ToggleButton
+        SquareWaveButton               matlab.ui.control.ToggleButton
+        SineWaveButton                 matlab.ui.control.ToggleButton
+        SynthAxes                      matlab.ui.control.UIAxes
+        Panel_Chopping                 matlab.ui.container.Panel
+        SampleBeginningEndSlider       matlab.ui.control.RangeSlider
+        SampleBeginningEndSliderLabel  matlab.ui.control.Label
+        Panel_PlayingWaveform          matlab.ui.container.Panel
+        PlayingWaveform                matlab.ui.control.UIAxes
+        Panel_AudioFileInput           matlab.ui.container.Panel
+        GridLayout                     matlab.ui.container.GridLayout
+        Panel_Sample1                  matlab.ui.container.Panel
+        Sample1_LoadButton             matlab.ui.control.Button
+        Sample1_SelectButton           matlab.ui.control.Button
+        Panel_Sample2                  matlab.ui.container.Panel
+        Sample2_LoadButton             matlab.ui.control.Button
+        Sample2_SelectButton           matlab.ui.control.Button
+        Panel_Sample3                  matlab.ui.container.Panel
+        Sample3_LoadButton             matlab.ui.control.Button
+        Sample3_SelectButton           matlab.ui.control.Button
+        Panel_Sample4                  matlab.ui.container.Panel
+        Sample4_LoadButton             matlab.ui.control.Button
+        Sample4_SelectButton           matlab.ui.control.Button
+        Panel_Sample5                  matlab.ui.container.Panel
+        Sample5_LoadButton             matlab.ui.control.Button
+        Sample5_SelectButton           matlab.ui.control.Button
+        Panel_Sample6                  matlab.ui.container.Panel
+        Sample6_LoadButton             matlab.ui.control.Button
+        Sample6_SelectButton           matlab.ui.control.Button
+        Panel_Sample7                  matlab.ui.container.Panel
+        Sample7_LoadButton             matlab.ui.control.Button
+        Sample7_SelectButton           matlab.ui.control.Button
+        Panel_Sample8                  matlab.ui.container.Panel
+        Sample8_LoadButton             matlab.ui.control.Button
+        Sample8_SelectButton           matlab.ui.control.Button
+        Panel_Sample9                  matlab.ui.container.Panel
+        Sample9_LoadButton             matlab.ui.control.Button
+        Sample9_SelectButton           matlab.ui.control.Button
+    end
+
+    % Component initialization
+    methods (Access = private)
+
+        % Create UIFigure and components
+        function createComponents(app)
+
+            % Create UIFigure and hide until all components are created
+            app.UIFigure = uifigure('Visible', 'off');
+            app.UIFigure.Position = [100 100 1761 1065];
+            app.UIFigure.Name = 'MATLAB App';
+
+            % Create Toolbar
+            app.Toolbar = uitoolbar(app.UIFigure);
+
+            % Create newfile_thing
+            app.newfile_thing = uipushtool(app.Toolbar);
+
+            % Create save_thing
+            app.save_thing = uipushtool(app.Toolbar);
+
+            % Create Panel_AudioFileInput
+            app.Panel_AudioFileInput = uipanel(app.UIFigure);
+            app.Panel_AudioFileInput.Title = 'Audio File Input';
+            app.Panel_AudioFileInput.Position = [30 506 440 552];
+
+            % Create GridLayout
+            app.GridLayout = uigridlayout(app.Panel_AudioFileInput);
+            app.GridLayout.ColumnWidth = {'1x', '1x', '1x'};
+            app.GridLayout.RowHeight = {'1x', '1x', '1x'};
+
+            % Create Panel_Sample9
+            app.Panel_Sample9 = uipanel(app.GridLayout);
+            app.Panel_Sample9.Title = 'Panel';
+            app.Panel_Sample9.Layout.Row = 3;
+            app.Panel_Sample9.Layout.Column = 3;
+
+            % Create Sample9_SelectButton
+            app.Sample9_SelectButton = uibutton(app.Panel_Sample9, 'push');
+            app.Sample9_SelectButton.Position = [7 84 120 57];
+            app.Sample9_SelectButton.Text = 'Sample 9';
+
+            % Create Sample9_LoadButton
+            app.Sample9_LoadButton = uibutton(app.Panel_Sample9, 'push');
+            app.Sample9_LoadButton.Position = [17 44 100 23];
+            app.Sample9_LoadButton.Text = 'Load';
+
+            % Create Panel_Sample8
+            app.Panel_Sample8 = uipanel(app.GridLayout);
+            app.Panel_Sample8.Title = 'Panel';
+            app.Panel_Sample8.Layout.Row = 3;
+            app.Panel_Sample8.Layout.Column = 2;
+
+            % Create Sample8_SelectButton
+            app.Sample8_SelectButton = uibutton(app.Panel_Sample8, 'push');
+            app.Sample8_SelectButton.Position = [7 84 120 57];
+            app.Sample8_SelectButton.Text = 'Sample 8';
+
+            % Create Sample8_LoadButton
+            app.Sample8_LoadButton = uibutton(app.Panel_Sample8, 'push');
+            app.Sample8_LoadButton.Position = [17 44 100 23];
+            app.Sample8_LoadButton.Text = 'Load';
+
+            % Create Panel_Sample7
+            app.Panel_Sample7 = uipanel(app.GridLayout);
+            app.Panel_Sample7.Title = 'Panel';
+            app.Panel_Sample7.Layout.Row = 3;
+            app.Panel_Sample7.Layout.Column = 1;
+
+            % Create Sample7_SelectButton
+            app.Sample7_SelectButton = uibutton(app.Panel_Sample7, 'push');
+            app.Sample7_SelectButton.Position = [7 84 120 57];
+            app.Sample7_SelectButton.Text = 'Sample 7';
+
+            % Create Sample7_LoadButton
+            app.Sample7_LoadButton = uibutton(app.Panel_Sample7, 'push');
+            app.Sample7_LoadButton.Position = [17 44 100 23];
+            app.Sample7_LoadButton.Text = 'Load';
+
+            % Create Panel_Sample6
+            app.Panel_Sample6 = uipanel(app.GridLayout);
+            app.Panel_Sample6.Title = 'Panel';
+            app.Panel_Sample6.Layout.Row = 2;
+            app.Panel_Sample6.Layout.Column = 3;
+
+            % Create Sample6_SelectButton
+            app.Sample6_SelectButton = uibutton(app.Panel_Sample6, 'push');
+            app.Sample6_SelectButton.Position = [7 84 120 57];
+            app.Sample6_SelectButton.Text = 'Sample 6';
+
+            % Create Sample6_LoadButton
+            app.Sample6_LoadButton = uibutton(app.Panel_Sample6, 'push');
+            app.Sample6_LoadButton.Position = [17 44 100 23];
+            app.Sample6_LoadButton.Text = 'Load';
+
+            % Create Panel_Sample5
+            app.Panel_Sample5 = uipanel(app.GridLayout);
+            app.Panel_Sample5.Title = 'Panel';
+            app.Panel_Sample5.Layout.Row = 2;
+            app.Panel_Sample5.Layout.Column = 2;
+
+            % Create Sample5_SelectButton
+            app.Sample5_SelectButton = uibutton(app.Panel_Sample5, 'push');
+            app.Sample5_SelectButton.Position = [7 84 120 57];
+            app.Sample5_SelectButton.Text = 'Sample 5';
+
+            % Create Sample5_LoadButton
+            app.Sample5_LoadButton = uibutton(app.Panel_Sample5, 'push');
+            app.Sample5_LoadButton.Position = [17 44 100 23];
+            app.Sample5_LoadButton.Text = 'Load';
+
+            % Create Panel_Sample4
+            app.Panel_Sample4 = uipanel(app.GridLayout);
+            app.Panel_Sample4.Title = 'Panel';
+            app.Panel_Sample4.Layout.Row = 2;
+            app.Panel_Sample4.Layout.Column = 1;
+
+            % Create Sample4_SelectButton
+            app.Sample4_SelectButton = uibutton(app.Panel_Sample4, 'push');
+            app.Sample4_SelectButton.Position = [7 84 120 57];
+            app.Sample4_SelectButton.Text = 'Sample 4';
+
+            % Create Sample4_LoadButton
+            app.Sample4_LoadButton = uibutton(app.Panel_Sample4, 'push');
+            app.Sample4_LoadButton.Position = [17 44 100 23];
+            app.Sample4_LoadButton.Text = 'Load';
+
+            % Create Panel_Sample3
+            app.Panel_Sample3 = uipanel(app.GridLayout);
+            app.Panel_Sample3.Title = 'Panel';
+            app.Panel_Sample3.Layout.Row = 1;
+            app.Panel_Sample3.Layout.Column = 3;
+
+            % Create Sample3_SelectButton
+            app.Sample3_SelectButton = uibutton(app.Panel_Sample3, 'push');
+            app.Sample3_SelectButton.Position = [7 84 120 57];
+            app.Sample3_SelectButton.Text = 'Sample 3';
+
+            % Create Sample3_LoadButton
+            app.Sample3_LoadButton = uibutton(app.Panel_Sample3, 'push');
+            app.Sample3_LoadButton.Position = [17 44 100 23];
+            app.Sample3_LoadButton.Text = 'Load';
+
+            % Create Panel_Sample2
+            app.Panel_Sample2 = uipanel(app.GridLayout);
+            app.Panel_Sample2.Title = 'Panel';
+            app.Panel_Sample2.Layout.Row = 1;
+            app.Panel_Sample2.Layout.Column = 2;
+
+            % Create Sample2_SelectButton
+            app.Sample2_SelectButton = uibutton(app.Panel_Sample2, 'push');
+            app.Sample2_SelectButton.Position = [7 84 120 57];
+            app.Sample2_SelectButton.Text = 'Sample 2';
+
+            % Create Sample2_LoadButton
+            app.Sample2_LoadButton = uibutton(app.Panel_Sample2, 'push');
+            app.Sample2_LoadButton.Position = [17 44 100 23];
+            app.Sample2_LoadButton.Text = 'Load';
+
+            % Create Panel_Sample1
+            app.Panel_Sample1 = uipanel(app.GridLayout);
+            app.Panel_Sample1.Title = 'Panel';
+            app.Panel_Sample1.Layout.Row = 1;
+            app.Panel_Sample1.Layout.Column = 1;
+
+            % Create Sample1_SelectButton
+            app.Sample1_SelectButton = uibutton(app.Panel_Sample1, 'push');
+            app.Sample1_SelectButton.Tooltip = {'Set Sample 1 as current'};
+            app.Sample1_SelectButton.Position = [7 84 120 57];
+            app.Sample1_SelectButton.Text = 'Sample 1';
+
+            % Create Sample1_LoadButton
+            app.Sample1_LoadButton = uibutton(app.Panel_Sample1, 'push');
+            app.Sample1_LoadButton.Position = [17 44 100 23];
+            app.Sample1_LoadButton.Text = 'Load';
+
+            % Create Panel_PlayingWaveform
+            app.Panel_PlayingWaveform = uipanel(app.UIFigure);
+            app.Panel_PlayingWaveform.Title = 'Waveform Audio being Played';
+            app.Panel_PlayingWaveform.Position = [523 259 323 227];
+
+            % Create PlayingWaveform
+            app.PlayingWaveform = uiaxes(app.Panel_PlayingWaveform);
+            title(app.PlayingWaveform, 'Playing Waveform')
+            xlabel(app.PlayingWaveform, 'X')
+            ylabel(app.PlayingWaveform, 'Y')
+            zlabel(app.PlayingWaveform, 'Z')
+            app.PlayingWaveform.YLim = [-1 1];
+            app.PlayingWaveform.ClippingStyle = 'rectangle';
+            app.PlayingWaveform.Box = 'on';
+            app.PlayingWaveform.XGrid = 'on';
+            app.PlayingWaveform.YGrid = 'on';
+            app.PlayingWaveform.Position = [9 8 300 185];
+
+            % Create Panel_Chopping
+            app.Panel_Chopping = uipanel(app.UIFigure);
+            app.Panel_Chopping.Title = 'Chopping';
+            app.Panel_Chopping.Position = [1183 969 393 89];
+
+            % Create SampleBeginningEndSliderLabel
+            app.SampleBeginningEndSliderLabel = uilabel(app.Panel_Chopping);
+            app.SampleBeginningEndSliderLabel.HorizontalAlignment = 'right';
+            app.SampleBeginningEndSliderLabel.Position = [8 36 127 22];
+            app.SampleBeginningEndSliderLabel.Text = 'Sample Beginning/End';
+
+            % Create SampleBeginningEndSlider
+            app.SampleBeginningEndSlider = uislider(app.Panel_Chopping, 'range');
+            app.SampleBeginningEndSlider.Limits = [0 1];
+            app.SampleBeginningEndSlider.Position = [157 45 219 3];
+            app.SampleBeginningEndSlider.Value = [0 1];
+
+            % Create Panel_Synthesizer
+            app.Panel_Synthesizer = uipanel(app.UIFigure);
+            app.Panel_Synthesizer.Title = 'Synthesizer';
+            app.Panel_Synthesizer.Position = [1183 444 497 519];
+
+            % Create SynthAxes
+            app.SynthAxes = uiaxes(app.Panel_Synthesizer);
+            title(app.SynthAxes, 'Synth Waveform')
+            xlabel(app.SynthAxes, 'X')
+            ylabel(app.SynthAxes, 'Y')
+            zlabel(app.SynthAxes, 'Z')
+            app.SynthAxes.YLim = [-1 1];
+            app.SynthAxes.BoxStyle = 'full';
+            app.SynthAxes.ClippingStyle = 'rectangle';
+            app.SynthAxes.Box = 'on';
+            app.SynthAxes.XGrid = 'on';
+            app.SynthAxes.YGrid = 'on';
+            app.SynthAxes.Position = [148 240 300 185];
+
+            % Create ButtonGroup_WaveformFunctions
+            app.ButtonGroup_WaveformFunctions = uibuttongroup(app.Panel_Synthesizer);
+            app.ButtonGroup_WaveformFunctions.Title = 'Waveform Functions';
+            app.ButtonGroup_WaveformFunctions.Position = [16 334 124 153];
+
+            % Create SineWaveButton
+            app.SineWaveButton = uitogglebutton(app.ButtonGroup_WaveformFunctions);
+            app.SineWaveButton.Text = 'Sine Wave';
+            app.SineWaveButton.Position = [11 99 100 23];
+            app.SineWaveButton.Value = true;
+
+            % Create SquareWaveButton
+            app.SquareWaveButton = uitogglebutton(app.ButtonGroup_WaveformFunctions);
+            app.SquareWaveButton.Text = 'Square Wave';
+            app.SquareWaveButton.Position = [11 78 100 23];
+
+            % Create TriangleWaveButton
+            app.TriangleWaveButton = uitogglebutton(app.ButtonGroup_WaveformFunctions);
+            app.TriangleWaveButton.Text = 'Triangle Wave';
+            app.TriangleWaveButton.Position = [11 57 100 23];
+
+            % Create Button10
+            app.Button10 = uibutton(app.ButtonGroup_WaveformFunctions, 'push');
+            app.Button10.Position = [12 35 100 23];
+            app.Button10.Text = 'Button10';
+
+            % Create FrequencyLabel
+            app.FrequencyLabel = uilabel(app.Panel_Synthesizer);
+            app.FrequencyLabel.BackgroundColor = [0.902 0.902 0.902];
+            app.FrequencyLabel.HorizontalAlignment = 'center';
+            app.FrequencyLabel.Position = [148 464 67 22];
+            app.FrequencyLabel.Text = 'Frequency';
+
+            % Create FrequencyDropDown
+            app.FrequencyDropDown = uidropdown(app.Panel_Synthesizer);
+            app.FrequencyDropDown.Items = {'A4 - 440.0 Hz', 'Option 2', 'Option 3', 'Option 4'};
+            app.FrequencyDropDown.BackgroundColor = [0.902 0.902 0.902];
+            app.FrequencyDropDown.Position = [225 464 109 22];
+            app.FrequencyDropDown.Value = 'A4 - 440.0 Hz';
+
+            % Create EditFieldLabel
+            app.EditFieldLabel = uilabel(app.Panel_Synthesizer);
+            app.EditFieldLabel.HorizontalAlignment = 'right';
+            app.EditFieldLabel.Position = [148 435 55 22];
+            app.EditFieldLabel.Text = 'Edit Field';
+
+            % Create FrequencyEditField
+            app.FrequencyEditField = uieditfield(app.Panel_Synthesizer, 'text');
+            app.FrequencyEditField.Tooltip = {'Synthesizer Frequency in Hz'};
+            app.FrequencyEditField.Position = [218 435 113 22];
+            app.FrequencyEditField.Value = 'app.FrequencyDropDown.Value';
+
+            % Create KeyboardPanel
+            app.KeyboardPanel = uipanel(app.Panel_Synthesizer);
+            app.KeyboardPanel.Title = 'Keyboard';
+            app.KeyboardPanel.Position = [41 9 422 221];
+
+            % Create GridLayout2
+            app.GridLayout2 = uigridlayout(app.KeyboardPanel);
+            app.GridLayout2.RowHeight = {'1x', '1x', '1x'};
+
+            % Create Panel_EffectsSampleModification
+            app.Panel_EffectsSampleModification = uipanel(app.UIFigure);
+            app.Panel_EffectsSampleModification.Title = 'Effects and Sample Modification';
+            app.Panel_EffectsSampleModification.Position = [496 494 672 564];
+
+            % Create VolumeKnobLabel
+            app.VolumeKnobLabel = uilabel(app.Panel_EffectsSampleModification);
+            app.VolumeKnobLabel.HorizontalAlignment = 'center';
+            app.VolumeKnobLabel.Position = [44 379 45 22];
+            app.VolumeKnobLabel.Text = 'Volume';
+
+            % Create VolumeKnob
+            app.VolumeKnob = uiknob(app.Panel_EffectsSampleModification, 'continuous');
+            app.VolumeKnob.Limits = [0 1];
+            app.VolumeKnob.Tooltip = {'Sample Volume'};
+            app.VolumeKnob.Position = [50 435 33 33];
+
+            % Create DelayKnobLabel
+            app.DelayKnobLabel = uilabel(app.Panel_EffectsSampleModification);
+            app.DelayKnobLabel.HorizontalAlignment = 'center';
+            app.DelayKnobLabel.Position = [128 377 36 22];
+            app.DelayKnobLabel.Text = 'Delay';
+
+            % Create DelayKnob
+            app.DelayKnob = uiknob(app.Panel_EffectsSampleModification, 'continuous');
+            app.DelayKnob.Limits = [0 1];
+            app.DelayKnob.Tooltip = {'Sample Delay'};
+            app.DelayKnob.Position = [128 433 36 36];
+
+            % Create Knob_3Label
+            app.Knob_3Label = uilabel(app.Panel_EffectsSampleModification);
+            app.Knob_3Label.HorizontalAlignment = 'center';
+            app.Knob_3Label.Position = [211 377 33 22];
+            app.Knob_3Label.Text = 'Knob';
+
+            % Create Knob_3
+            app.Knob_3 = uiknob(app.Panel_EffectsSampleModification, 'continuous');
+            app.Knob_3.Limits = [0 1];
+            app.Knob_3.Position = [210 433 36 36];
+
+            % Create SliderLabel
+            app.SliderLabel = uilabel(app.Panel_EffectsSampleModification);
+            app.SliderLabel.HorizontalAlignment = 'right';
+            app.SliderLabel.Position = [40 49 36 22];
+            app.SliderLabel.Text = 'Slider';
+
+            % Create EqRange1Slider
+            app.EqRange1Slider = uislider(app.Panel_EffectsSampleModification);
+            app.EqRange1Slider.Orientation = 'vertical';
+            app.EqRange1Slider.Position = [96 58 3 149];
+
+            % Create Slider_2Label
+            app.Slider_2Label = uilabel(app.Panel_EffectsSampleModification);
+            app.Slider_2Label.HorizontalAlignment = 'right';
+            app.Slider_2Label.Position = [128 48 36 22];
+            app.Slider_2Label.Text = 'Slider';
+
+            % Create EqRange2Slider
+            app.EqRange2Slider = uislider(app.Panel_EffectsSampleModification);
+            app.EqRange2Slider.Orientation = 'vertical';
+            app.EqRange2Slider.Position = [184 57 3 150];
+
+            % Create Slider_3Label
+            app.Slider_3Label = uilabel(app.Panel_EffectsSampleModification);
+            app.Slider_3Label.HorizontalAlignment = 'right';
+            app.Slider_3Label.Position = [210 48 36 22];
+            app.Slider_3Label.Text = 'Slider';
+
+            % Create EqRange3Slider
+            app.EqRange3Slider = uislider(app.Panel_EffectsSampleModification);
+            app.EqRange3Slider.Orientation = 'vertical';
+            app.EqRange3Slider.Position = [266 57 3 150];
+
+            % Create Slider_4Label
+            app.Slider_4Label = uilabel(app.Panel_EffectsSampleModification);
+            app.Slider_4Label.HorizontalAlignment = 'right';
+            app.Slider_4Label.Position = [309 49 36 22];
+            app.Slider_4Label.Text = 'Slider';
+
+            % Create EqRange4Slider
+            app.EqRange4Slider = uislider(app.Panel_EffectsSampleModification);
+            app.EqRange4Slider.Orientation = 'vertical';
+            app.EqRange4Slider.Position = [365 58 3 150];
+
+            % Create Slider_5Label
+            app.Slider_5Label = uilabel(app.Panel_EffectsSampleModification);
+            app.Slider_5Label.HorizontalAlignment = 'right';
+            app.Slider_5Label.Position = [408 48 36 22];
+            app.Slider_5Label.Text = 'Slider';
+
+            % Create EqRange5Slider
+            app.EqRange5Slider = uislider(app.Panel_EffectsSampleModification);
+            app.EqRange5Slider.Orientation = 'vertical';
+            app.EqRange5Slider.Position = [464 57 3 150];
+
+            % Create Slider_6Label
+            app.Slider_6Label = uilabel(app.Panel_EffectsSampleModification);
+            app.Slider_6Label.HorizontalAlignment = 'right';
+            app.Slider_6Label.Position = [507 48 36 22];
+            app.Slider_6Label.Text = 'Slider';
+
+            % Create EqRange6Slider
+            app.EqRange6Slider = uislider(app.Panel_EffectsSampleModification);
+            app.EqRange6Slider.Orientation = 'vertical';
+            app.EqRange6Slider.Position = [563 57 3 150];
+
+            % Create SampleDirectionSwitchLabel
+            app.SampleDirectionSwitchLabel = uilabel(app.Panel_EffectsSampleModification);
+            app.SampleDirectionSwitchLabel.HorizontalAlignment = 'center';
+            app.SampleDirectionSwitchLabel.Position = [47 287 96 22];
+            app.SampleDirectionSwitchLabel.Text = 'Sample Direction';
+
+            % Create SampleDirectionSwitch
+            app.SampleDirectionSwitch = uiswitch(app.Panel_EffectsSampleModification, 'slider');
+            app.SampleDirectionSwitch.Items = {'Reverse', 'Forward'};
+            app.SampleDirectionSwitch.Position = [72 324 45 20];
+            app.SampleDirectionSwitch.Value = 'Forward';
+
+            % Create LRBalanceSliderLabel
+            app.LRBalanceSliderLabel = uilabel(app.Panel_EffectsSampleModification);
+            app.LRBalanceSliderLabel.HorizontalAlignment = 'right';
+            app.LRBalanceSliderLabel.Position = [402 490 70 22];
+            app.LRBalanceSliderLabel.Text = 'L/R Balance';
+
+            % Create LRBalanceSlider
+            app.LRBalanceSlider = uislider(app.Panel_EffectsSampleModification);
+            app.LRBalanceSlider.Limits = [-1 1];
+            app.LRBalanceSlider.Position = [493 499 150 3];
+
+            % Create PlayButton
+            app.PlayButton = uibutton(app.Panel_EffectsSampleModification, 'push');
+            app.PlayButton.Position = [292 327 100 23];
+            app.PlayButton.Text = 'PLAY';
+
+            % Create StopButton
+            app.StopButton = uibutton(app.Panel_EffectsSampleModification, 'push');
+            app.StopButton.Position = [291 287 100 23];
+            app.StopButton.Text = 'STOP';
+
+            % Create ProgramPrintoutPanel
+            app.ProgramPrintoutPanel = uipanel(app.UIFigure);
+            app.ProgramPrintoutPanel.Title = 'Program Print-out';
+            app.ProgramPrintoutPanel.Position = [29 353 486 133];
+
+            % Create TextAreaLabel
+            app.TextAreaLabel = uilabel(app.ProgramPrintoutPanel);
+            app.TextAreaLabel.HorizontalAlignment = 'right';
+            app.TextAreaLabel.Position = [12 75 55 22];
+            app.TextAreaLabel.Text = 'Text Area';
+
+            % Create TextArea
+            app.TextArea = uitextarea(app.ProgramPrintoutPanel);
+            app.TextArea.Position = [82 19 379 80];
+
+            % Show the figure after all components are created
+            app.UIFigure.Visible = 'on';
+        end
+    end
+
+    % App creation and deletion
+    methods (Access = public)
+
+        % Construct app
+        function app = ing6_v0_2
+
+            % Create UIFigure and components
+            createComponents(app)
+
+            % Register the app with App Designer
+            registerApp(app, app.UIFigure)
+
+            if nargout == 0
+                clear app
+            end
+        end
+
+        % Code that executes before app deletion
+        function delete(app)
+
+            % Delete UIFigure when app is deleted
+            delete(app.UIFigure)
+        end
+    end
+end
